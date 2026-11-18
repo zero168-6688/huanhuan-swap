@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>換換 Swap</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7fa;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#243047}
+header{background:#fff;padding:20px 18px;box-shadow:0 2px 8px #00000008}
+h1{margin:0;color:#218b78;font-size:27px}
+small{color:#718096}
+main{padding:18px 16px 90px}
+input{width:100%;padding:14px;border:1px solid #dce2e9;border-radius:12px;font-size:16px}
+h2{font-size:18px;margin-top:25px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px #00000008}
+.photo{height:125px;background:#e3f3ee;display:grid;place-items:center;font-size:48px}
+.info{padding:12px;font-size:15px}
+.info small{display:block;margin-top:5px}
+nav{position:fixed;bottom:0;width:100%;background:white;display:flex;justify-content:space-around;padding:13px 4px 24px;border-top:1px solid #eee}
+nav button{border:0;background:none;color:#218b78;font-size:14px}
+</style>
+</head>
+<body>
+<header><h1>換換 Swap</h1><small>讓閒置好物，交換新的可能</small></header>
+<main>
+<input id="search" placeholder="🔍 搜尋想交換的物品">
+<h2>探索交換好物</h2>
+<div class="grid" id="items">
+<div class="item" data-name="耳機"><div class="photo">🎧</div><div class="info">藍牙耳機<small>📍 台北市</small></div></div>
+<div class="item" data-name="相機"><div class="photo">📷</div><div class="info">數位相機<small>📍 台中市</small></div></div>
+<div class="item" data-name="背包"><div class="photo">🎒</div><div class="info">休閒背包<small>📍 高雄市</small></div></div>
+<div class="item" data-name="書籍"><div class="photo">📚</div><div class="info">二手書籍<small>📍 新北市</small></div></div>
+</div>
+<p style="color:#718096;font-size:12px">目前為展示資料，尚未開放真實交換。</p>
+</main>
+<nav>
+<button onclick="alert('目前在首頁')">⌂ 首頁</button>
+<button onclick="alert('刊登功能開發中')">＋ 刊登</button>
+<button onclick="alert('訊息功能開發中')">✉ 訊息</button>
+<button onclick="alert('會員功能開發中')">♙ 我的</button>
+</nav>
+<script>
+document.getElementById('search').addEventListener('input',function(){
+const q=this.value.trim().toLowerCase();
+document.querySelectorAll('.item').forEach(el=>{
+el.style.display=el.dataset.name.toLowerCase().includes(q)?'':'none';
+});
+});
+</script>
+</body>
+</html>
